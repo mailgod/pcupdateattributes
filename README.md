@@ -4,7 +4,7 @@
 
 The script writes `unmatched-target-users.csv` by default. The report includes target users with no source match, an unusable username, or multiple source matches.
 
-Use `-LogOnlyCsvPath` to perform the full read and comparison without changing the target tenant. The resulting CSV lists matched users, current and source values, and whether the script would update them. This parameter takes precedence over updates, even without `-WhatIf`.
+Use `-LogOnlyCsvPath` to perform the full read and comparison without changing the target tenant. The resulting CSV lists matched users with current and source values, plus unmatched target users with `Action` set to `Unmatched` and a reason. The separate unmatched-user CSV is still written as well. This parameter takes precedence over updates, even without `-WhatIf`.
 
 ## Prerequisites
 

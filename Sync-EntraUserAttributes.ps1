@@ -125,6 +125,20 @@ try {
                     Username              = $usernameKey
                     Reason                = $matchReason
                 })
+            if (-not [string]::IsNullOrWhiteSpace($LogOnlyCsvPath)) {
+                $changeLog.Add([pscustomobject]@{
+                        Action                  = 'Unmatched'
+                        TargetUserId            = $targetUser.Id
+                        TargetDisplayName       = $targetUser.DisplayName
+                        TargetUserPrincipalName = $targetUser.UserPrincipalName
+                        Username                = $usernameKey
+                        CurrentEmployeeId       = $targetUser.EmployeeId
+                        SourceEmployeeId        = $null
+                        CurrentMail             = $targetUser.Mail
+                        SourceMail              = $null
+                        Reason                  = $matchReason
+                    })
+            }
             continue
         }
 
